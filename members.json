@@ -1,0 +1,18 @@
+[
+  {
+    "position": "会長",
+    "company": "サンプル株式会社",
+    "name": "山田 太郎",
+    "business": "経営コンサルティング",
+    "reason": "先輩会員の紹介で入会しました。",
+    "photo": "https://via.placeholder.com/300x300?text=Member"
+  },
+  {
+    "position": "副会長",
+    "company": "大阪サンプル商事",
+    "name": "佐藤 花子",
+    "business": "人材育成・研修事業",
+    "reason": "経営者の学びを深めたいと思い入会しました。",
+    "photo": "https://via.placeholder.com/300x300?text=Member"
+  }
+]

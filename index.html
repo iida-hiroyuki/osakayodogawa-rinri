@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>大阪淀川倫理法人会 会員リスト</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #2563eb;
+      --border: #e5e7eb;
+      --overlay: rgba(15, 23, 42, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Meiryo, sans-serif;
+      background: linear-gradient(160deg, #eaf1ff 0%, var(--bg) 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .container {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      padding: 28px 18px 42px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      text-align: center;
+      font-size: 1.75rem;
+      letter-spacing: 0.02em;
+    }
+
+    .sub {
+      margin: 0 0 18px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .search {
+      width: min(480px, 100%);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--card);
+      padding: 10px 12px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .search:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 14px;
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+      padding: 14px 12px;
+      cursor: pointer;
+      transition: transform 0.14s ease, box-shadow 0.14s ease;
+      display: grid;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(15, 23, 42, 0.12);
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #dbe7ff;
+      background: #eef2ff;
+    }
+
+    .name {
+      margin: 0;
+      font-size: 1.08rem;
+      font-weight: 700;
+    }
+
+    .position,
+    .company {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .empty {
+      text-align: center;
+      color: var(--muted);
+      padding: 28px 0;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--overlay);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 1000;
+    }
+
+    .overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      width: min(620px, 100%);
+      max-height: 90vh;
+      overflow: auto;
+      border-radius: 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.22);
+      padding: 18px;
+    }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 8px;
+    }
+
+    .close-btn {
+      border: none;
+      background: #111827;
+      color: #fff;
+      border-radius: 8px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .detail {
+      display: grid;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .detail-row {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: #fafcff;
+    }
+
+    .detail-label {
+      margin: 0 0 4px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .detail-value {
+      margin: 0;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    @media (max-width: 980px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 1.35rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>大阪淀川倫理法人会 会員リスト</h1>
+    <p class="sub">カードをタップすると詳細を表示します</p>
+
+    <div class="toolbar">
+      <input id="searchInput" class="search" type="search" placeholder="氏名・会社名で検索" />
+    </div>
+
+    <section id="memberGrid" class="grid" aria-live="polite"></section>
+    <p id="emptyState" class="empty" hidden>表示できる会員データがありません。</p>
+  </main>
+
+  <div id="overlay" class="overlay" aria-hidden="true">
+    <section class="modal" role="dialog" aria-modal="true" aria-label="会員詳細">
+      <div class="modal-head">
+        <h2 id="modalTitle" style="margin:0;">会員詳細</h2>
+        <button id="closeBtn" class="close-btn" type="button">閉じる</button>
+      </div>
+      <div style="text-align:center; margin-top: 10px;">
+        <img id="modalPhoto" class="avatar" alt="会員写真" />
+      </div>
+      <div id="modalDetail" class="detail"></div>
+    </section>
+  </div>
+
+  <script>
+    let allMembers = [];
+    let filteredMembers = [];
+
+    const gridEl = document.getElementById("memberGrid");
+    const emptyStateEl = document.getElementById("emptyState");
+    const searchInputEl = document.getElementById("searchInput");
+    const overlayEl = document.getElementById("overlay");
+    const closeBtnEl = document.getElementById("closeBtn");
+    const modalTitleEl = document.getElementById("modalTitle");
+    const modalPhotoEl = document.getElementById("modalPhoto");
+    const modalDetailEl = document.getElementById("modalDetail");
+
+    function safeText(value) {
+      return typeof value === "string" ? value.trim() : "";
+    }
+
+    function normalizeMember(raw) {
+      return {
+        position: safeText(raw.position),
+        company: safeText(raw.company),
+        name: safeText(raw.name),
+        business: safeText(raw.business),
+        reason: safeText(raw.reason),
+        photo: safeText(raw.photo),
+      };
+    }
+
+    function createCard(member, index) {
+      const card = document.createElement("article");
+      card.className = "card";
+      card.tabIndex = 0;
+      card.setAttribute("role", "button");
+      card.setAttribute("aria-label", member.name ? member.name + "の詳細を表示" : "詳細を表示");
+
+      card.innerHTML = `
+        <img class="avatar" src="${member.photo || "https://via.placeholder.com/200x200?text=No+Photo"}" alt="${member.name || "会員"}の写真" loading="lazy" />
+        <p class="name">${member.name || "氏名未設定"}</p>
+        <p class="position">${member.position || "役職未設定"}</p>
+        <p class="company">${member.company || "会社名未設定"}</p>
+      `;
+
+      const open = () => openModal(member);
+      card.addEventListener("click", open);
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          open();
+        }
+      });
+      card.dataset.index = String(index);
+      return card;
+    }
+
+    function renderMembers() {
+      gridEl.innerHTML = "";
+
+      if (!filteredMembers.length) {
+        emptyStateEl.hidden = false;
+        return;
+      }
+
+      emptyStateEl.hidden = true;
+      const fragment = document.createDocumentFragment();
+      filteredMembers.forEach((member, index) => {
+        fragment.appendChild(createCard(member, index));
+      });
+      gridEl.appendChild(fragment);
+    }
+
+    function openModal(member) {
+      modalTitleEl.textContent = member.name || "会員詳細";
+      modalPhotoEl.src = member.photo || "https://via.placeholder.com/200x200?text=No+Photo";
+      modalPhotoEl.alt = (member.name || "会員") + "の写真";
+      modalDetailEl.innerHTML = "";
+
+      const rows = [
+        ["単会役職", member.position],
+        ["会社名", member.company],
+        ["氏名", member.name],
+        ["業務内容", member.business],
+        ["倫理に入ったきっかけ", member.reason],
+      ];
+
+      rows.forEach(([label, value]) => {
+        const row = document.createElement("div");
+        row.className = "detail-row";
+        row.innerHTML = `
+          <p class="detail-label">${label}</p>
+          <p class="detail-value">${value || "-"}</p>
+        `;
+        modalDetailEl.appendChild(row);
+      });
+
+      overlayEl.classList.add("open");
+      overlayEl.setAttribute("aria-hidden", "false");
+    }
+
+    function closeModal() {
+      overlayEl.classList.remove("open");
+      overlayEl.setAttribute("aria-hidden", "true");
+    }
+
+    function filterMembers(keyword) {
+      const q = safeText(keyword).toLowerCase();
+      if (!q) {
+        filteredMembers = allMembers.slice();
+        return;
+      }
+      filteredMembers = allMembers.filter((member) => {
+        const haystack = (member.name + " " + member.company).toLowerCase();
+        return haystack.includes(q);
+      });
+    }
+
+    async function loadMembers() {
+      try {
+        const response = await fetch("members.json?ts=" + Date.now(), { cache: "no-store" });
+        if (!response.ok) throw new Error("failed to load");
+        const data = await response.json();
+        allMembers = Array.isArray(data) ? data.map(normalizeMember) : [];
+        filteredMembers = allMembers.slice();
+        renderMembers();
+      } catch (error) {
+        emptyStateEl.hidden = false;
+        emptyStateEl.textContent = "会員データの読み込みに失敗しました。";
+      }
+    }
+
+    closeBtnEl.addEventListener("click", closeModal);
+    overlayEl.addEventListener("click", (event) => {
+      if (event.target === overlayEl) closeModal();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && overlayEl.classList.contains("open")) {
+        closeModal();
+      }
+    });
+    searchInputEl.addEventListener("input", (event) => {
+      filterMembers(event.target.value);
+      renderMembers();
+    });
+
+    loadMembers();
+  </script>
+</body>
+</html>
