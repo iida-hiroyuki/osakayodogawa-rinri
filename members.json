@@ -8,7 +8,7 @@
     "photo": ""
   },
   {
-    "position": "幹事",
+    "position": "会員",
     "company": "オフィス ライジング 株式会社",
     "name": "朝日 里佳",
     "business": "",
@@ -16,7 +16,7 @@
     "photo": ""
   },
   {
-    "position": "幹事",
+    "position": "会員",
     "company": "株式会社ネクストン",
     "name": "政木 和善",
     "business": "",
@@ -40,7 +40,7 @@
     "photo": ""
   },
   {
-    "position": "幹事",
+    "position": "会員",
     "company": "有限会社ブロードウッド",
     "name": "小林 廣範",
     "business": "",
@@ -555,9 +555,9 @@
     "position": "会員",
     "company": "株式会社ドコデモどあ",
     "name": "飯田 宏之",
-    "business": "",
-    "reason": "",
-    "photo": ""
+    "business": "システム開発、DX",
+    "reason": "自分を変えるため",
+    "photo": "https://drive.google.com/uc?id=1aYEea_0bLAuEkSk1E_Pm2GLPaDCAg18W"
   },
   {
     "position": "会員",
