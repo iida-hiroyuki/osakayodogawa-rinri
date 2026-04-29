@@ -45,7 +45,25 @@
 2. 必要時に `会員サイト` → `公開・更新` を押す
 3. 数秒で `members.json` が更新され、公開サイトに反映
 
+## 顔写真の表示要件
+
+公開サイトでDrive画像を `<img>` として表示するため、対象ファイル（または格納フォルダ）の共有設定が以下である必要があります。
+
+- 一般的なアクセス: `リンクを知っている全員`
+- 権限: `閲覧者`
+
+これが満たされない場合、Drive仕様により外部サイトからは表示できません（URL変換では解決不可）。
+
+サイト側は以下の順でDrive画像URLを試行し、最も成功率の高い `lh3.googleusercontent.com` のCDNを最優先で使用します。
+
+1. `https://lh3.googleusercontent.com/d/<FILE_ID>=w800`
+2. `https://drive.google.com/thumbnail?id=<FILE_ID>&sz=w800`
+3. `https://drive.google.com/uc?export=view&id=<FILE_ID>`
+4. すべて失敗した場合は内蔵の `No Photo` 画像
+
+`<img>` には `referrerpolicy="no-referrer"` を付与し、リファラーチェックでブロックされる事象を回避します。
+
 ## 補足
 
 - 顔写真URLは、Googleドライブの `/file/d/{id}/view` 形式でも `uc?id={id}` に変換して表示します。
-- `=IMAGE("...")` 形式のセル値もURL抽出して対応します。
+- `=IMAGE("...")` / `=HYPERLINK("...")` 形式のセル値、リンク付きセル（RichText）からもURLを抽出します。

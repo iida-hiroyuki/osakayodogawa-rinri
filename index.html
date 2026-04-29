@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>大阪淀川倫理法人会 会員リスト</title>
+  <title>大阪よどがわ倫理法人会 会員リスト</title>
   <style>
     :root {
       --bg: #f5f7fb;
@@ -224,7 +224,7 @@
 </head>
 <body>
   <main class="container">
-    <h1>大阪淀川倫理法人会 会員リスト</h1>
+    <h1>大阪よどがわ倫理法人会 会員リスト</h1>
     <p class="sub">カードをタップすると詳細を表示します</p>
 
     <div class="toolbar">
@@ -242,7 +242,7 @@
         <button id="closeBtn" class="close-btn" type="button">閉じる</button>
       </div>
       <div style="text-align:center; margin-top: 10px;">
-        <img id="modalPhoto" class="avatar" alt="会員写真" />
+        <img id="modalPhoto" class="avatar" alt="会員写真" decoding="async" referrerpolicy="no-referrer" />
       </div>
       <div id="modalDetail" class="detail"></div>
     </section>
@@ -285,12 +285,58 @@
       return photo || FALLBACK_PHOTO;
     }
 
+    function extractDriveFileId(url) {
+      const text = safeText(url);
+      if (!text) return "";
+      const filePathMatch = text.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+      if (filePathMatch) return filePathMatch[1];
+      const idQueryMatch = text.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+      if (idQueryMatch) return idQueryMatch[1];
+      return "";
+    }
+
+    function getPhotoCandidates(photo) {
+      const src = safeText(photo);
+      if (!src) return [FALLBACK_PHOTO];
+
+      const driveId = extractDriveFileId(src);
+      if (!driveId) return [src, FALLBACK_PHOTO];
+
+      return [
+        "https://lh3.googleusercontent.com/d/" + driveId + "=w800",
+        "https://drive.google.com/thumbnail?id=" + driveId + "&sz=w800",
+        "https://drive.google.com/uc?export=view&id=" + driveId,
+        FALLBACK_PHOTO,
+      ];
+    }
+
+    function setPhotoSource(imgElement, photo) {
+      const sources = getPhotoCandidates(photo);
+      imgElement.dataset.photoSources = JSON.stringify(sources);
+      imgElement.dataset.photoIndex = "0";
+      imgElement.src = sources[0];
+    }
+
     function attachPhotoFallback(imgElement) {
+      if (imgElement.dataset.fallbackBound === "1") return;
       imgElement.addEventListener("error", () => {
-        if (imgElement.src !== FALLBACK_PHOTO) {
+        const raw = imgElement.dataset.photoSources || "[]";
+        let sources = [];
+        try {
+          sources = JSON.parse(raw);
+        } catch (_) {
+          sources = [FALLBACK_PHOTO];
+        }
+        const currentIndex = Number(imgElement.dataset.photoIndex || "0");
+        const nextIndex = currentIndex + 1;
+        if (nextIndex < sources.length) {
+          imgElement.dataset.photoIndex = String(nextIndex);
+          imgElement.src = sources[nextIndex];
+        } else if (imgElement.src !== FALLBACK_PHOTO) {
           imgElement.src = FALLBACK_PHOTO;
         }
       });
+      imgElement.dataset.fallbackBound = "1";
     }
 
     function createCard(member, index) {
@@ -301,13 +347,16 @@
       card.setAttribute("aria-label", member.name ? member.name + "の詳細を表示" : "詳細を表示");
 
       card.innerHTML = `
-        <img class="avatar" src="${resolvePhotoSrc(member.photo)}" alt="${member.name || "会員"}の写真" loading="lazy" />
+        <img class="avatar" src="${resolvePhotoSrc(member.photo)}" alt="${member.name || "会員"}の写真" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
         <p class="name">${member.name || "氏名未設定"}</p>
         <p class="position">${member.position || "役職未設定"}</p>
         <p class="company">${member.company || "会社名未設定"}</p>
       `;
       const cardPhotoEl = card.querySelector(".avatar");
-      if (cardPhotoEl) attachPhotoFallback(cardPhotoEl);
+      if (cardPhotoEl) {
+        attachPhotoFallback(cardPhotoEl);
+        setPhotoSource(cardPhotoEl, member.photo);
+      }
 
       const open = () => openModal(member);
       card.addEventListener("click", open);
@@ -339,7 +388,7 @@
 
     function openModal(member) {
       modalTitleEl.textContent = member.name || "会員詳細";
-      modalPhotoEl.src = resolvePhotoSrc(member.photo);
+      setPhotoSource(modalPhotoEl, member.photo);
       modalPhotoEl.alt = (member.name || "会員") + "の写真";
       modalDetailEl.innerHTML = "";
 

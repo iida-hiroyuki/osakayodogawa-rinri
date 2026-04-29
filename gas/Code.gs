@@ -1,5 +1,5 @@
 const MENU_NAME = "会員サイト";
-const SHEET_NAME = "フォームの回答 1";
+const SHEET_NAME = "会員一覧";
 const HEADERS = {
   position: "単会役職",
   company: "会社名",
@@ -42,11 +42,16 @@ function loadMembersFromSheet_() {
   const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
   const sheet =
     spreadsheet.getSheetByName(SHEET_NAME) || spreadsheet.getSheets()[0];
-  const values = sheet.getDataRange().getValues();
+  const range = sheet.getDataRange();
+  const values = range.getValues();
+  const formulas = range.getFormulas();
+  const richTextValues = range.getRichTextValues();
   if (!values.length) return [];
 
   const headerRow = values[0].map((v) => String(v).trim());
   const rows = values.slice(1);
+  const formulaRows = formulas.slice(1);
+  const richRows = richTextValues.slice(1);
 
   const idx = {};
   Object.keys(HEADERS).forEach((key) => {
@@ -61,14 +66,24 @@ function loadMembersFromSheet_() {
   }
 
   const members = rows
-    .map((row) => ({
-      position: normalizeCell_(row[idx.position]),
-      company: normalizeCell_(row[idx.company]),
-      name: normalizeCell_(row[idx.name]),
-      business: normalizeCell_(row[idx.business]),
-      reason: normalizeCell_(row[idx.reason]),
-      photo: normalizePhotoUrl_(normalizeCell_(row[idx.photo])),
-    }))
+    .map((row, rowIndex) => {
+      const formulaRow = formulaRows[rowIndex] || [];
+      const richRow = richRows[rowIndex] || [];
+      const rawPhoto = extractPhotoCell_(
+        row[idx.photo],
+        formulaRow[idx.photo],
+        richRow[idx.photo]
+      );
+
+      return {
+        position: normalizeCell_(row[idx.position]),
+        company: normalizeCell_(row[idx.company]),
+        name: normalizeCell_(row[idx.name]),
+        business: normalizeCell_(row[idx.business]),
+        reason: normalizeCell_(row[idx.reason]),
+        photo: normalizePhotoUrl_(rawPhoto),
+      };
+    })
     .filter((m) => m.name);
 
   return members;
@@ -79,28 +94,61 @@ function normalizeCell_(value) {
   return String(value).trim();
 }
 
+function extractPhotoCell_(value, formula, richTextValue) {
+  const directValue = normalizeCell_(value);
+  if (directValue) return directValue;
+
+  const formulaValue = normalizeCell_(formula);
+  if (formulaValue) return formulaValue;
+
+  if (!richTextValue) return "";
+
+  const directLink = richTextValue.getLinkUrl && richTextValue.getLinkUrl();
+  if (directLink) return String(directLink).trim();
+
+  if (richTextValue.getRuns) {
+    const runs = richTextValue.getRuns();
+    for (let i = 0; i < runs.length; i += 1) {
+      const runLink = runs[i].getLinkUrl && runs[i].getLinkUrl();
+      if (runLink) return String(runLink).trim();
+    }
+  }
+
+  return "";
+}
+
 function normalizePhotoUrl_(url) {
   if (!url) return "";
 
-  // =IMAGE("https://...") に対応
-  const imageFormula = url.match(/=IMAGE\(\"([^\"]+)\"\)/i);
+  const imageFormula = url.match(/=IMAGE\(\s*["']([^"']+)["']/i);
   if (imageFormula) {
     url = imageFormula[1];
   }
 
-  // /file/d/{id}/view 形式を直接表示URLに変換
-  const driveFile = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
-  if (driveFile) {
-    return "https://drive.google.com/uc?id=" + driveFile[1];
+  const hyperlinkFormula = url.match(/=HYPERLINK\(\s*["']([^"']+)["']/i);
+  if (hyperlinkFormula) {
+    url = hyperlinkFormula[1];
   }
 
-  // open?id={id} 形式を直接表示URLに変換
-  const openId = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
-  if (openId && url.includes("drive.google.com")) {
-    return "https://drive.google.com/uc?id=" + openId[1];
+  const driveId = extractDriveFileId_(url);
+  if (driveId) {
+    return "https://drive.google.com/uc?id=" + driveId;
   }
 
   return url;
+}
+
+function extractDriveFileId_(url) {
+  if (!url) return "";
+  const filePathMatch = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+  if (filePathMatch) return filePathMatch[1];
+  const openMatch = url.match(/drive\.google\.com\/open\?[^"']*\bid=([a-zA-Z0-9_-]+)/);
+  if (openMatch) return openMatch[1];
+  const ucMatch = url.match(/drive\.google\.com\/[^"']*[?&]id=([a-zA-Z0-9_-]+)/);
+  if (ucMatch) return ucMatch[1];
+  const lh3Match = url.match(/lh3\.googleusercontent\.com\/d\/([a-zA-Z0-9_-]+)/);
+  if (lh3Match) return lh3Match[1];
+  return "";
 }
 
 function upsertRepoFile_(params) {
