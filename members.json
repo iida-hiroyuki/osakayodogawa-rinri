@@ -1,18 +1,954 @@
 [
   {
-    "position": "会長",
-    "company": "サンプル株式会社",
-    "name": "山田 太郎",
-    "business": "経営コンサルティング",
-    "reason": "先輩会員の紹介で入会しました。",
-    "photo": "https://via.placeholder.com/300x300?text=Member"
+    "position": "会員",
+    "company": "(有)ｸﾞﾘｯﾄ",
+    "name": "石橋　俊弘",
+    "business": "",
+    "reason": "",
+    "photo": ""
   },
   {
-    "position": "副会長",
-    "company": "大阪サンプル商事",
-    "name": "佐藤 花子",
-    "business": "人材育成・研修事業",
-    "reason": "経営者の学びを深めたいと思い入会しました。",
-    "photo": "https://via.placeholder.com/300x300?text=Member"
+    "position": "幹事",
+    "company": "ｵﾌｨｽ ﾗｲｼﾞﾝｸﾞ (株)",
+    "name": "朝日　里佳",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "幹事",
+    "company": "(株)ﾈｸｽﾄﾝ",
+    "name": "政木　和善",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "ｺﾞｲｸ電池(株)",
+    "name": "田中　達也",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(有)ﾓﾝﾚｰﾌﾞみさ",
+    "name": "納　規紗榮",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "幹事",
+    "company": "(有)ﾌﾞﾛｰﾄﾞｳｯﾄﾞ",
+    "name": "小林　廣範",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(有)J-RADIANCE",
+    "name": "志和　輝彦",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "ﾒｯﾄﾗｲﾌ生命保険(株)",
+    "name": "吉岡　聖起",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "社会保険労務士法人 A&P ついき事務所",
+    "name": "築城　由佳",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "JIST",
+    "name": "村田　有希",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)Jﾘｽｸﾏﾈｰｼﾞﾒﾝﾄ",
+    "name": "片岡　修",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "MD NEXT(株)",
+    "name": "前田　誠治",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "ｿﾆｰ生命保険(株)",
+    "name": "大河内　直也",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)PrincessVision",
+    "name": "廣岡　ゆかり",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "Lonestar Tax Consulting",
+    "name": "岩佐　学",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "PCharmony",
+    "name": "大神　菜保子",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)夢ふぉと",
+    "name": "林　さゆり",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "淀川ﾗｸﾞﾋﾞｰｽｸｰﾙ",
+    "name": "横内　祥太",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)ﾚｰｻﾞｰﾃｯｸ",
+    "name": "浜野　太郎",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "松江隆明経営ｺﾝｻﾙﾃｨﾝｸﾞ事務所",
+    "name": "松江　隆明",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "CSｱｾｯﾄ(株)大阪支店",
+    "name": "井阪　圭太郎",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "髙松建設(株)",
+    "name": "髙松　孝年",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "ﾄﾞﾘｰﾑﾌｧｸﾄﾘｰ(株)",
+    "name": "大野　義啓",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "うちぺでぃあ(同)",
+    "name": "上野　靖昌",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "ﾀﾞｲﾔ自動車(株)",
+    "name": "武田　大作",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "土地家屋調査士法人 岡田登記測量設計",
+    "name": "岡田　真太朗",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)ﾊﾞﾝﾋﾞ",
+    "name": "四井　一樹",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "みはら社会保険労務士事務所",
+    "name": "三原　健嗣",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "NPO法人 真成会",
+    "name": "箱田　成司",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "日本ﾌｧｲﾅﾝｼｬﾙﾌﾟﾗﾝﾆﾝｸﾞ(株)",
+    "name": "島木　真人",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)KIS",
+    "name": "勝村　佳之",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)ﾈｸｽﾄﾝ",
+    "name": "御川　泰史",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "行政書士 乾事務所",
+    "name": "乾　喜満",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)梅田白雲台",
+    "name": "呉　龍一",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)FEAT.",
+    "name": "山岡　滉太郎",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "佐藤 浩貴",
+    "name": "佐藤　浩貴",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)TOKI MENTAL",
+    "name": "小田　博一",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)VividｰLife",
+    "name": "吉本　達志",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)Umadea",
+    "name": "宮﨑　恭世",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "なかい家",
+    "name": "中井　正和",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)STR.AMBITION&PEACE",
+    "name": "志和　賢将",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "税理士法人 古田土会計",
+    "name": "梅原　翔",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)RH",
+    "name": "石本　智一",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)NR",
+    "name": "田中　将",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)TLS",
+    "name": "江川　佳隆",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "明治安田生命保険(相)",
+    "name": "小松原　貴子",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)SaU",
+    "name": "村田　将樹",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)ﾈｸｽﾄﾝ",
+    "name": "野村　勇介",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "堺筋本町法律事務所",
+    "name": "吉留　慧",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)ｻｰﾋﾞｽFOW",
+    "name": "山下　達也",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)ﾀｶｾﾝ",
+    "name": "髙田　智之",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)岡田測量設計",
+    "name": "岡田　啓吾",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "ｵﾌｨｽ あさの(株)",
+    "name": "今村　優介",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "広日ﾊｳｽ工業(株)",
+    "name": "北　晃暢",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "ﾘｱﾘ ｴｰｼﾞｪﾝﾄ",
+    "name": "寺本　正之",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(特非)ｳｪﾙﾈｯﾄ虹家",
+    "name": "野口　忠真",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)Origin&Relax",
+    "name": "河野　宏平",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)living",
+    "name": "宇山　智久",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)H&M",
+    "name": "服部　剛",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "日本ﾌｧｲﾅﾝｼｬﾙﾌﾟﾗﾝﾆﾝｸﾞ(株)",
+    "name": "髙木　洋佑",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)PACkage",
+    "name": "山口　勇",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "Coco.",
+    "name": "川口　貴子",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "NPO法人 真成会",
+    "name": "妹尾　学",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)With out",
+    "name": "佐藤　亮",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "第一生命保険(株)",
+    "name": "坂本　素子",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "EOP(同)",
+    "name": "田伏　彩乃",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)Smile envision",
+    "name": "谷口　多絵子",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "天満吞子",
+    "name": "藤岡　貴美子",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "十三 まるたけ",
+    "name": "武智　政幸",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)ﾄﾞｺﾃﾞﾓどあ",
+    "name": "飯田　宏之",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(一社)歯科衛生士地域福祉連携協会",
+    "name": "清水　えつな",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)F･P管財",
+    "name": "北端　秀行",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "梅村聡後援会",
+    "name": "梅村　聡",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "森 隆史",
+    "name": "森　隆史",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "松本 喜夫",
+    "name": "松本　喜夫",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "屋鋪 剛志",
+    "name": "屋鋪　剛志",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(同)COOL",
+    "name": "行平　佳香",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "はり･きゅうMDR&音色ｶﾌｪJuJu",
+    "name": "大石　みどり",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)AｰSYSTEM",
+    "name": "天冨　謙",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "ﾌﾞﾙｰｵｰｼｬﾝ(株)",
+    "name": "相根　英治",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)KTｸﾘｰﾝ",
+    "name": "北野　雄一",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)ｸﾞﾘｰﾝ･ｱｰﾄ",
+    "name": "松本　直樹",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "上加世田 みほ",
+    "name": "上加世田　みほ",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)ｴｽｺｰﾎﾟﾚｰｼｮﾝ",
+    "name": "鈴木　昭彦",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)ZERO-1",
+    "name": "森　郁恵",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "林 広幸",
+    "name": "林　広幸",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "山口 滋巳",
+    "name": "山口　滋巳",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "BAR STING",
+    "name": "竹中　俊二",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "三星美装(株)",
+    "name": "堀岡　勝史",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)日日化学ｻｰﾋﾞｽ",
+    "name": "奥村　弥司",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)Next Frontier",
+    "name": "内藤　愛美",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(同)あいの",
+    "name": "安藤　愛野",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)ｱｯﾌﾟﾊｳｼﾞﾝｸﾞ",
+    "name": "小川　泰毅",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "ﾀﾞｲﾜｱﾄﾞﾃｯｸ(株)",
+    "name": "熊代　琢",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "とよた歯科矯正歯科",
+    "name": "能登　一城",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)ｴﾙ･ｴﾑ･ｼｰ",
+    "name": "山田　佳奈",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)LIG",
+    "name": "福井　宏昌",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)大阪ﾏﾙｶﾝ",
+    "name": "澤口　諒",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)A.B.United",
+    "name": "中田　仁之",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(同)YKA",
+    "name": "越川　朋織",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)ﾌﾟﾗｻﾞｵｰｻｶ",
+    "name": "有田　照",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "彌榮",
+    "name": "井上　まゆみ",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "柿本 明久",
+    "name": "柿本　明久",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "麵屋桜息吹 ﾗｰﾒﾝさくらまる",
+    "name": "石井　康裕",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "ｱﾝｼﾞｪ ﾊﾞｲ.ﾄﾊﾙ",
+    "name": "川邉　治身",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(特非)在日ｺﾘｱﾝ高齢者支援ｾﾝﾀｰ ｻﾝﾎﾞﾗﾑ",
+    "name": "高　敬一",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "しんら(株)",
+    "name": "西村　智也",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "藤本鍼灸治療院",
+    "name": "松下　健太郎",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "ﾋﾄｲﾙ(株)",
+    "name": "河口　正巳",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "ﾌｫﾄｽﾀｼﾞｵ TIP",
+    "name": "石﨑　直也",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)ﾏｳﾝﾄﾌｨｰﾙﾄﾞ",
+    "name": "畠山　桂",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)ｶｽﾀﾏｰｸﾞﾙｰﾌﾟ",
+    "name": "中川　翔",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)ﾐﾗｲｴ",
+    "name": "大友　裕史",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "ｺﾒｺﾉﾄﾘｺ",
+    "name": "北井　国治",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)J-DREAM",
+    "name": "木山　修助",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "(株)LEXY BEAUTY",
+    "name": "松葉　富美子",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "ﾍｱｾｯﾄ専門店703",
+    "name": "山室　敬義",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "ｸﾘｲﾄ(株)",
+    "name": "佐藤　誠祐",
+    "business": "",
+    "reason": "",
+    "photo": ""
+  },
+  {
+    "position": "会員",
+    "company": "志うえまつ社労士事務所",
+    "name": "植松　雄二郎",
+    "business": "",
+    "reason": "",
+    "photo": ""
   }
 ]
